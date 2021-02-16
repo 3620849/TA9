@@ -33,11 +33,10 @@ services:
         - spring_rabbitmq_password=guest
     depends_on:
         - producer 
-  #ta9client:
-  #  image: ta9client
-  #  build: ./Ta9Client/
-  #  ports:
-  #      - "4200:80"
-  #  depends_on:
-  #      - producer
+  ta9client:
+    container_name: ta9client
+    image: ta9client
+    build: ./Ta9Client/
+    ports:
+        - "80:80"
       

@@ -1,18 +1,17 @@
-package com.ta9.ServerConsumer.Config;
+package com.ta9.ServerConsumer.config;
 
 import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.connection.ConnectionBlockedEvent;
-import org.springframework.amqp.rabbit.listener.ListenerContainerConsumerFailedEvent;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.event.EventListener;
 
 @Configuration
 public class RabbitConfig {
-    static final String queueName = "spring-boot";
+    @Value("${app.queueName}")
+    String QUEUE_NAME;
 
     @Bean
     Queue queue() {
-        return new Queue(queueName, false);
+        return new Queue(QUEUE_NAME, false);
     }
 }
