@@ -1,0 +1,11 @@
+.userContainer{
+    width: 620px;
+    height: 300px;
+    margin: auto;
+    position: relative;
+    top: 20px;
+}
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    height: 228px;
+  }

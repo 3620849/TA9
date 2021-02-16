@@ -1,0 +1,28 @@
+.tableCont{
+    width: 45%;
+display: inline-block;
+margin: 5px;
+}
+table {
+    width: 100%;
+  }
+  .log{
+    display: inline-block;
+    width: 50%;
+    position: absolute;
+    top:60px;
+  }
+  textarea{
+    width: 100%;
+    min-height: 450px;
+    margin: 12px;
+  }
+  .options{
+    margin: 12px;
+  }
+  .txt{
+      margin-left: 10px;
+  }
+  .textBlock{
+      height: 64px;
+  }
