@@ -1,81 +1,65 @@
 <div class="adminContainer">
-    <div class="tableCont">
-        <div class="textBlock">
-            <span class="txt">This is table from log server at localhost:8080</span>
-        </div>
-        <div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-          
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef> No. </th>
-              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-            </ng-container>
-          
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-          
-            <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
-              <th mat-header-cell *matHeaderCellDef> Weight </th>
-              <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-            </ng-container>
-          
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
-              <th mat-header-cell *matHeaderCellDef> Symbol </th>
-              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-        </div>  
-          
-
+  <div class="tableCont">
+    <div class="textBlock">
+      <span class="txt">This is table from log server at localhost:8080</span>
     </div>
-    <div class="log">
-        <div class="options">
-            <span>
-            <button   mat-stroked-button color="primary"> 
-                <mat-icon>refresh</mat-icon>
-              </button>
-            </span>
-            <span class="txt">refresh all </span>
-            <span class="txt">This is log from log server at localhost:8081</span>
-        </div>
-        <div class="logBlock">
-            <textarea>
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
-                Cardiff, Wales (CNN)The bitter Cardiff cold, the dawn half-light, and the radio-static pulse of callouts are the same as every shift over the past year, but as paramedic Angie Dymott and her colleague Lynda Stephens climb into their ambu
+    <div>
+      <mat-table #table [dataSource]="dataSource">
     
-            </textarea>
-        </div>
-        
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        </ng-container>
+    
+        <!-- Expanded Content Column - The detail row is made up of this one column -->
+        <ng-container matColumnDef="expandedDetail">
+          <mat-cell *matCellDef="let detail"> 
+            The symbol for {{detail.element.name}}
+          </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"
+                matRipple 
+                class="element-row" 
+                [class.expanded]="expandedElement == row"
+                (click)="expandedElement = row"></mat-row>
+        <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+                [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+                style="overflow: hidden"> 
+        </mat-row>
+      </mat-table>
     </div>
+
+
+  </div>
+  <div class="log">
+    <div class="options">
+      <span>
+        <button mat-stroked-button color="primary">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </span>
+      <span class="txt">refresh all </span>
+      <span class="txt">This is log from rabbitMq consumer at localhost:8081</span>
+    </div>
+    <div class="logBlock">
+      <textarea [disabled]="true">{{rabbitLog}}
+            </textarea>
+    </div>
+
+  </div>
 </div>
