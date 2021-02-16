@@ -11,18 +11,16 @@ export class CommunicationService {
   constructor(private http:HttpClient) {      
    }
    public init(){
-    console.log("RUN!");//ffdfd
-    console.log("RUN!");//ffdfd
-    console.log("RUN!");//ffdfd
+    
    }
+   
    getRabbitLog(){
      return this.http.get<MessagesDto>(environment.consumer_server+"/messages");
    }
    getClientList(){
-    this.http.get(environment.producer_server+"/users")
+    return this.http.get(environment.producer_server+"/clients")
    }
    sendClientInfo(payload){
-     this.http.post(environment.producer_server+"/users",payload)
+     return this.http.post(environment.producer_server+"/clients",payload)
    }
-
 }
