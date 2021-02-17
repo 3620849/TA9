@@ -1,3 +1,5 @@
+import { Status } from "./status";
+
 export class Client{
     clientId:string;
     updateTime:number;
@@ -6,5 +8,5 @@ export class Client{
     screenResolution:string;
     clientLocalTime:number;
     timeZone:string;
-    status:string;
+    status:Status;
 }

@@ -18,7 +18,7 @@ public class ApiController {
     @Autowired
     private ClientService clientService;
 
-    @PatchMapping("/users/{clientId}/keepAlive")
+    @PatchMapping("/clients/{clientId}/keepAlive")
     public ResponseEntity<HttpStatus> keepAlive(@PathVariable("clientId")String clientId){
         log.info(" method: keepAlive executed");
         boolean isUpdated = clientService.setStatus(clientId, Status.ONLINE);
@@ -27,13 +27,13 @@ public class ApiController {
         }
         return new ResponseEntity(HttpStatus.OK);
     }
-    @PostMapping ("/users")
+    @PostMapping ("/clients")
     public ResponseEntity addNewClient(@RequestBody Client client,@RequestHeader HttpHeaders headers){
         log.info(" method: keepAlive executed");
         clientService.addClient(client,headers);
         return new ResponseEntity(HttpStatus.OK);
     }
-    @GetMapping("/users")
+    @GetMapping("/clients")
     public ResponseEntity<List<Client>>getClientList(){
         log.info(" method: getUsersList executed");
         List<Client> clients = clientService.getClients();

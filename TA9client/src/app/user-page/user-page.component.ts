@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from '../models/client';
+import { ClientService } from '../services/client.service';
+import { CommunicationService } from '../services/communication.service';
 
 @Component({
   selector: 'app-user-page',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPageComponent implements OnInit {
   panelOpenState=true;
-  constructor() { }
+  client:Client
+  constructor(private clientSrv:ClientService,private cs:CommunicationService) {
+    
+   }
 
   ngOnInit(): void {
+    this.cs.startKeepAlive();
+    this.client=this.clientSrv.getCurrentClient();
   }
+
 
 }

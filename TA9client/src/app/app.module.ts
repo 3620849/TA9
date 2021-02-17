@@ -11,6 +11,11 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommunicationService } from './services/communication.service';
 import { FormsModule } from '@angular/forms';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     ProjectMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     CommunicationService, {provide : APP_INITIALIZER, useFactory : initFunction, deps: [CommunicationService] , multi : true}

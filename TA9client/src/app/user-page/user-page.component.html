@@ -2,7 +2,7 @@
     <mat-card class="example-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Hi user your id is : 123456</mat-card-title>
+            <mat-card-title>Hi user your id is : {{client?.clientId}}</mat-card-title>
             <mat-card-subtitle>status: ONLINE</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="/assets/dog.png" alt="Photo of a Shiba Inu">
@@ -25,10 +25,9 @@
                             press here
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <p>Screen resolution: 1200x700</p>
-                    <p>language: Hebrew</p>
-                    <p>local time: 20:16</p>
-                    <p>ip address is :0.0.0.0</p>
+                    <p>Screen resolution: {{client?.screenResolution}}</p>
+                    <p>local time: {{client?.clientLocalTime | date: 'dd/MM/yyyy HH:mm'}}</p>
+                    <p>ip address is :{{client?.ip}}</p>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-card-actions>

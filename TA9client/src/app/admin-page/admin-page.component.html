@@ -1,33 +1,38 @@
 <div class="adminContainer">
   <div class="tableCont">
     <div class="textBlock">
-      <span class="txt">This is table from log server at localhost:8080</span>
+      <span class="txt">data from localhost:8080 updating every 5s
+        please press on the row to expand
+      </span>
     </div>
     <div>
       <mat-table #table [dataSource]="dataSource">
     
         <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        <ng-container matColumnDef="ip">
+          <mat-header-cell *matHeaderCellDef> IP addres </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.ip}} </mat-cell>
         </ng-container>
     
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        <ng-container matColumnDef="clientId">
+          <mat-header-cell *matHeaderCellDef> client id </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.clientId}} </mat-cell>
         </ng-container>
     
         <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> status </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
         </ng-container>
     
         <!-- Expanded Content Column - The detail row is made up of this one column -->
         <ng-container matColumnDef="expandedDetail">
           <mat-cell *matCellDef="let detail"> 
-            The symbol for {{detail.element.name}}
+            screen resolution: {{detail.element.screenResolution}} 
+            update on server: {{detail.element.updateTime | date: 'dd/MM/yyyy HH:mm:ss'}} ,
+            agent:{{detail.element.agent}},client time:{{detail.element.clientLocalTime | date: 'dd/MM/yyyy HH:mm:ss'}},
+            time zone:{{detail.element.timeZone}}
           </mat-cell>
         </ng-container>
     
@@ -49,7 +54,7 @@
   <div class="log">
     <div class="options">
       <span>
-        <button mat-stroked-button color="primary">
+        <button (click)="refresh()" mat-stroked-button color="primary">
           <mat-icon>refresh</mat-icon>
         </button>
       </span>

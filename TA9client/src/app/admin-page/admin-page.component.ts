@@ -17,7 +17,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class AdminPageComponent implements OnInit,OnDestroy {
   subscriptions: Subscription[]=[] ;
-  displayedColumns: string[] = ['position', 'name', 'weight'];
+  displayedColumns: string[] = ['ip', 'clientId', 'status'];
   rabbitLog ;
   dataSource;
   interval;
@@ -31,34 +31,36 @@ export class AdminPageComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit(): void {
-    let rows=[];
-    ELEMENT_DATA.forEach(element => rows.push(element, { detailRow: true, element }));
-    this.dataSource=rows;
+    this.cs.stopKeepAlive();
+    this.getLog();
+    this.getClientData(); 
     this.interval=setInterval(()=>{
       this.getLog();
+      this.getClientData();
     },5000);
+    
+    
+  }
+  refresh(){
+    this.getClientData();
+    this.getLog();
+  }
+  getClientData(){
+    this.subscriptions.push(this.cs.getClientList().subscribe(res=>{
+      let rows=[];
+      res.forEach(element => rows.push(element, { detailRow: true, element }));
+      this.dataSource=rows;
+    },err=>{
+    }));
   }
   getLog(){ 
-    this.cs.getRabbitLog().subscribe(res=>{ 
+    this.subscriptions.push(this.cs.getRabbitLog().subscribe(res=>{ 
       if(res.messages){
         let str="";
         res.messages.forEach(s=>{ 
           str=str.concat(s+"\n")});
           this.rabbitLog=str;
       }
-    },err=>{});
+    },err=>{}));
   }
-}
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 3, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 4, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-];
+} 

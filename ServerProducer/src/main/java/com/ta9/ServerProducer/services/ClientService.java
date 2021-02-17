@@ -18,15 +18,12 @@ import java.util.stream.Collectors;
 public class ClientService {
     @Value("${app.expirationTime}")
     long expirationTime;
-    @Value("${app.exchangeName}")
-    String exchangeName;
-    @Value("${app.key}")
-    String key;
 
     @Autowired
-    private AmqpTemplate rabbitTemplate;
-    @Autowired
     private InMemoryStorage inMemoryStorage;
+    @Autowired
+    MessagingService messagingService;
+
     public List<Client> getClients() {
         List<Client> clients = inMemoryStorage.getClients();
         return clients;
@@ -43,7 +40,7 @@ public class ClientService {
         client.setUpdateTime(System.currentTimeMillis());
         List<String> userAgent = headers.get("User-Agent");
         client.setAgent(userAgent.stream().collect(Collectors.joining()));
-        rabbitTemplate.convertAndSend(exchangeName, key,"[CLIENT ADDED]"+client );
+        messagingService.sendMsg("[CLIENT ADDED]"+client);
         inMemoryStorage.add(client);
     }
 
